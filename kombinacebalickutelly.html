@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porovnání cen balíčků</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        select, .output {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Porovnání cen balíčků</h1>
+        <label for="package">Vyberte balíček:</label>
+        <select id="package">
+            <option value="">-- Vyberte balíček --</option>
+<option value="250,260,10">MALÝ SAT TV</option>
+<option value="450,470,20">MALÝ SAT TV + HBO</option>
+<option value="500,530,30">MALÝ SAT TV + HBO + HBO Max</option>
+<option value="550,605,55">MALÝ SAT TV + HBO + HBO Max + Telly aplikace 2</option>
+<option value="600,680,80">MALÝ SAT TV + HBO + HBO Max + Telly aplikace 4</option>
+<option value="650,755,105">MALÝ SAT TV + HBO + HBO Max + Telly aplikace 6</option>
+<option value="300,335,35">MALÝ SAT TV + Telly aplikace 2</option>
+<option value="350,410,60">MALÝ SAT TV + Telly aplikace 4</option>
+<option value="400,485,85">MALÝ SAT TV + Telly aplikace 6</option>
+<option value="700,810,110">VELKÝ SAT TV</option>
+<option value="850,970,120">VELKÝ SAT TV + HBO</option>
+<option value="900,1040,140">VELKÝ SAT TV + HBO + HBO Max</option>
+<option value="950,1115,165">VELKÝ SAT TV + HBO + HBO Max + Telly aplikace 2</option>
+<option value="1000,1190,190">VELKÝ SAT TV + HBO + HBO Max + Telly aplikace 4</option>
+<option value="1050,1275,225">VELKÝ SAT TV + HBO + HBO Max + Telly aplikace 6</option>
+<option value="750,845,95">VELKÝ SAT TV + Telly aplikace 2</option>
+<option value="800,920,120">VELKÝ SAT TV + Telly aplikace 4</option>
+<option value="850,995,145">VELKÝ SAT TV + Telly aplikace 6</option>
+<option value="950,1060,110">MAXI SAT TV</option>
+<option value="1100,1230,130">MAXI SAT TV + HBO</option>
+<option value="1150,1300,150">MAXI SAT TV + HBO + HBO Max</option>
+<option value="1200,1375,175">MAXI SAT TV + HBO + HBO Max + Telly aplikace 2</option>
+<option value="1250,1450,200">MAXI SAT TV + HBO + HBO Max + Telly aplikace 4</option>
+<option value="1300,1525,225">MAXI SAT TV + HBO + HBO Max + Telly aplikace 6</option>
+<option value="1000,1135,135">MAXI SAT TV + Telly aplikace 2</option>
+<option value="1050,1210,160">MAXI SAT TV + Telly aplikace 4</option>
+<option value="1100,1285,185">MAXI SAT TV + Telly aplikace 6</option>
+        </select>
+
+        <div id="output" class="output" style="display: none;">
+            <p><strong>Původní cena:</strong> <span id="current-price"></span> Kč</p>
+            <p><strong>Nová cena od 1.2.2025:</strong> <span id="new-price"></span> Kč</p>
+            <p><strong>Rozdíl:</strong> <span id="price-difference"></span> Kč</p>
+        </div>
+    </div>
+
+    <script>
+        const packageSelect = document.getElementById('package');
+        const outputDiv = document.getElementById('output');
+        const currentPriceSpan = document.getElementById('current-price');
+        const newPriceSpan = document.getElementById('new-price');
+        const priceDifferenceSpan = document.getElementById('price-difference');
+
+        packageSelect.addEventListener('change', () => {
+            const selectedOption = packageSelect.value;
+
+            if (selectedOption) {
+                const [currentPrice, newPrice, priceDifference] = selectedOption.split(',');
+                currentPriceSpan.textContent = currentPrice;
+                newPriceSpan.textContent = newPrice;
+                priceDifferenceSpan.textContent = priceDifference;
+                outputDiv.style.display = 'block';
+            } else {
+                outputDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
